@@ -80,5 +80,3 @@ class CartItemViewSet(ModelViewSet):
         return CartItem.objects \
             .filter(cart_id=self.kwargs['cart_pk']) \
             .select_related('product')
-    
-    
