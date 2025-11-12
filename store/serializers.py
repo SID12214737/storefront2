@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.db import transaction
 from rest_framework import serializers
 from .models import *
+from .signals import order_created
 
 class CollectionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -161,5 +162,7 @@ class CreateOrderSerializer(serializers.Serializer):
 
             Cart.objects.filter(pk=cart_id).delete()
             
+            order_created.send_robust(self.__class__, order=order)
+
             return order
         
