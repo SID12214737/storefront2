@@ -1,5 +1,4 @@
 __pycache__
 .vscode
-*.db
-db.*
-*.num
+db.sqlite3
+class.num
