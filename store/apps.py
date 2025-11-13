@@ -7,4 +7,3 @@ class StoreConfig(AppConfig):
 
     def ready(self) -> None:
         import store.signals.handlers
-        
