@@ -176,3 +176,15 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+DEFAULT_FROM_EMAIL = 'from@moshbuy.com'
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = False
+
+ADMINS = [
+    ('Mosh', 'admin@moshbuy.com')
+]
