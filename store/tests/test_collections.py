@@ -7,13 +7,13 @@ from store.models import Collection
 
 @pytest.fixture
 def create_collection(api_client):
-    def do_create_collection(colection):
-        return api_client.post('/store/collections/', colection)
+    def do_create_collection(collection):
+        return api_client.post('/store/collections/', collection)
     return do_create_collection
 
 @pytest.mark.django_db
 class TestCreateCollection:
-    def test_if_user_is_anonymous_return_404(self, create_collection):
+    def test_if_user_is_anonymous_return_401(self, create_collection):
         response = create_collection({'title': 'a'})
 
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
@@ -55,3 +55,4 @@ class TestRetrieveCollection:
             'title': collection.title,
             'products_count': 0
         }
+    
